@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<title>Wholesale Media panel prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,500;1,6..72,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE work: a speaker's briefing pack, confident and scannable on a phone
+   IDEA a panel cue-card deck: each question is one card with the line to say on top, keywords marked like a highlighter
+   PICTURE the storyline route of four stops in METRO blue, METRO Wholesale Media at every stop
+   COLOUR pure white ground, METRO blue as the leading colour, METRO yellow as highlighter and accent
+   TYPE Plus Jakarta Sans for titles and numbers, Newsreader for spoken lines, Inter for the rest
+   LAYOUT one column up to 780px; route strip in the first screen; cards stack; stats in a wrapping grid */
+:root{color-scheme:light;--bg:#ffffff;--ink:#0b1633;--soft:#5b6680;--rule:#e6eaf2;--blue:#0a3d91;--navy:#002d72;--tint:#eef3fc;--yel:#ffdd00;--hl:#fff09a;--warn:#9a5b00}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:70px}
+body{margin:0;background:#fff;color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;overflow-x:clip}
+a{color:inherit}
+.top{padding:30px max(5vw,16px) 6px}
+.top .wrap,.main{max-width:780px;margin:0 auto}
+.kick{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--navy);background:var(--tint);padding:6px 12px;border-radius:999px;margin:0 0 14px}
+.kick i{width:8px;height:8px;border-radius:50%;background:var(--yel);display:inline-block}
+h1{font:800 clamp(34px,7vw,54px)/1.02 "Plus Jakarta Sans",Inter,sans-serif;letter-spacing:-.035em;margin:0 0 12px;text-wrap:balance;color:var(--navy)}
+h1 span{background:linear-gradient(transparent 62%,var(--yel) 62%,var(--yel) 92%,transparent 92%)}
+.lede{margin:0 0 22px;color:var(--soft);max-width:58ch;font-size:17px}
+.routebox{background:var(--navy);border-radius:20px;padding:22px 14px 18px}
+.route{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;position:relative}
+.route::before{content:"";position:absolute;left:12%;right:12%;top:25px;height:3px;background:var(--yel);border-radius:3px}
+.stop{position:relative;text-align:center;text-decoration:none;color:#fff;display:block}
+.dot{width:52px;height:52px;border-radius:50%;background:var(--yel);color:var(--navy);font:800 17px/1 "Plus Jakarta Sans",sans-serif;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;position:relative;box-shadow:0 0 0 5px var(--navy)}
+.stop b{display:block;font:700 15px/1.2 "Plus Jakarta Sans",sans-serif}
+.stop span{display:block;font-size:12.5px;color:#b9c8ea;line-height:1.35;margin-top:2px}
+.routenote{color:#dfe7f8;font-size:13.5px;text-align:center;margin:14px 0 0}
+.routenote b{color:var(--yel);font-weight:600}
+.nav{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--rule);margin-top:22px}
+.nav .in{max-width:780px;margin:0 auto;display:flex;gap:8px;padding:10px max(5vw,16px);overflow-x:auto}
+.nav a{flex:none;text-decoration:none;font:600 14px/1 "Plus Jakarta Sans",sans-serif;padding:11px 16px;border-radius:999px;background:var(--tint);color:var(--navy)}
+.nav a:hover{background:var(--yel)}
+.main{padding:8px max(5vw,16px) 40px}
+section{padding-top:40px}
+.qhead{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px}
+.qbig{flex:none;width:58px;height:58px;border-radius:16px;background:var(--navy);color:var(--yel);font:800 22px/1 "Plus Jakarta Sans",sans-serif;display:flex;align-items:center;justify-content:center}
+.qn{font-size:13px;color:var(--soft);margin:2px 0 0;font-weight:500}
+h2{font:800 clamp(24px,5vw,34px)/1.1 "Plus Jakarta Sans",sans-serif;letter-spacing:-.025em;margin:2px 0 0;text-wrap:balance;color:var(--ink)}
+details{background:#fff;border:1px solid var(--rule);border-radius:16px;margin:12px 0}
+summary{cursor:pointer;list-style:none;padding:14px 16px;display:flex;align-items:center;gap:12px;min-height:56px;font:700 15.5px/1.3 "Plus Jakarta Sans",sans-serif}
+summary::-webkit-details-marker{display:none}
+summary .s{font:400 13px/1.4 Inter,sans-serif;color:var(--soft);display:block;margin-top:2px}
+summary .tx{flex:1}
+summary .em{flex:none;width:34px;height:34px;border-radius:10px;background:var(--tint);display:flex;align-items:center;justify-content:center}
+summary .em svg{width:18px;height:18px;stroke:var(--navy);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+summary::after{content:"";width:10px;height:10px;border-right:2px solid var(--soft);border-bottom:2px solid var(--soft);transform:rotate(45deg);margin:-4px 6px 0 0;transition:transform .2s}
+details[open] summary::after{transform:rotate(225deg);margin-top:4px}
+details:focus-within,summary:focus-visible{outline:none;border-color:var(--blue)}
+.dbody{padding:0 16px 16px}
+.hint{background:#fffbe0;border-color:#f6e38a}
+.hint summary .em{background:var(--yel)}
+.hint p{margin:0 0 8px}
+.hint ul{margin:0;padding-left:18px}
+.hint li{margin-bottom:3px}
+.answer{background:#fff;border-radius:20px;padding:20px 18px;box-shadow:0 0 0 2px var(--navy),0 14px 30px -18px rgba(0,45,114,.45)}
+.tag{display:inline-flex;align-items:center;gap:6px;font:700 12.5px/1 "Plus Jakarta Sans",sans-serif;padding:7px 12px;border-radius:999px;background:var(--navy);color:#fff;margin-bottom:16px}
+.tag i{width:7px;height:7px;border-radius:50%;background:var(--yel)}
+.beat{margin:0 0 16px;padding-left:14px;border-left:3px solid var(--rule);border-radius:0}
+.beat:last-child{margin:0}
+.lbl{display:block;font:700 12.5px/1.2 "Plus Jakarta Sans",sans-serif;color:var(--blue);margin-bottom:4px}
+.say{font:500 18.5px/1.5 Newsreader,Georgia,serif;color:var(--ink)}
+mark{background:linear-gradient(transparent 55%,var(--hl) 55%);color:inherit;font-weight:600;padding:0 1px}
+.wsm{background:var(--navy);border:none;border-radius:16px;padding:16px;margin-top:6px}
+.wsm .lbl{color:var(--yel)}
+.wsm .say{color:#fff}
+.wsm mark{background:linear-gradient(transparent 58%,rgba(255,221,0,.55) 58%)}
+.kw{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.kw span{font:600 12.5px/1 "Plus Jakarta Sans",sans-serif;padding:7px 11px;border-radius:999px;background:var(--tint);color:var(--navy)}
+.long .say{font-size:16.5px;font-weight:400}
+.long .beat{border-left-color:var(--tint)}
+.row{padding:11px 0;border-top:1px solid var(--rule)}
+.row:first-child{border-top:none}
+.row b{display:block;font:700 15px/1.3 "Plus Jakarta Sans",sans-serif}
+.row p{margin:3px 0 0;font-size:14.5px;color:var(--soft)}
+.flag{display:inline-block;font:600 11.5px/1 Inter,sans-serif;color:var(--warn);background:#fff3d6;padding:4px 7px;border-radius:6px;margin-left:4px}
+h3{display:flex;align-items:center;gap:10px;font:800 18px/1.2 "Plus Jakarta Sans",sans-serif;margin:28px 0 12px;color:var(--navy)}
+h3::before{content:"";width:22px;height:4px;background:var(--yel);border-radius:4px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px}
+.stat{background:#fff;border:1px solid var(--rule);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.stat:first-child{background:var(--tint);border-color:transparent}
+.stat .ic{width:42px;height:42px;border-radius:12px;background:var(--navy);display:flex;align-items:center;justify-content:center}
+.stat .ic svg{width:22px;height:22px;stroke:var(--yel);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.big{font:800 clamp(30px,7vw,38px)/1 "Plus Jakarta Sans",sans-serif;letter-spacing:-.03em;color:var(--navy);white-space:nowrap}
+.big small{font-size:17px;font-weight:700}
+.stat p{margin:0;font-size:14.5px;line-height:1.5}
+.stat a{font-size:12.5px;color:var(--soft);margin-top:auto}
+.meter{height:10px;border-radius:999px;background:var(--rule);overflow:hidden}
+.meter i{display:block;height:100%;background:var(--yel);border-radius:999px}
+.take{margin-top:14px;padding:16px;border-radius:16px;background:var(--yel);color:var(--navy);font:600 15.5px/1.45 "Plus Jakarta Sans",sans-serif}
+.take b{font-weight:800}
+.checks{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:10px}
+.checks li{display:flex;gap:12px;align-items:flex-start;padding:14px;border:1px solid var(--rule);border-radius:14px}
+.checks li::before{content:"";flex:none;width:20px;height:20px;border-radius:6px;border:2px solid var(--navy);margin-top:2px}
+.checks b{font-family:"Plus Jakarta Sans",sans-serif}
+.src{font-size:13.5px;color:var(--soft)}
+footer{max-width:780px;margin:0 auto;padding:0 max(5vw,16px) 48px}
+@media(max-width:600px){.route{gap:4px}.stop span{display:none}.stop b{font-size:13px}.dot{width:46px;height:46px;font-size:15px}.route::before{top:22px}.say{font-size:17.5px}.qbig{width:48px;height:48px;font-size:19px;border-radius:13px}}
+@media(prefers-reduced-motion:no-preference){.dot{transition:transform .2s}.stop:hover .dot{transform:scale(1.08)}}
+
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{-webkit-tap-highlight-color:transparent;-webkit-font-smoothing:antialiased}
+.top{padding-top:max(30px,calc(env(safe-area-inset-top) + 18px));padding-left:max(5vw,16px,env(safe-area-inset-left));padding-right:max(5vw,16px,env(safe-area-inset-right))}
+.main,.nav .in,footer{padding-left:max(5vw,16px,env(safe-area-inset-left));padding-right:max(5vw,16px,env(safe-area-inset-right))}
+footer{padding-bottom:max(48px,calc(env(safe-area-inset-bottom) + 24px))}
+.nav .in{scrollbar-width:none}.nav .in::-webkit-scrollbar{display:none}
+summary{-webkit-user-select:none;user-select:none}
+.colB{margin-top:4px}
+@media(max-width:430px){
+.top{padding-top:max(22px,calc(env(safe-area-inset-top) + 12px))}
+h1{font-size:34px}
+.lede{font-size:16px;margin-bottom:18px}
+.routebox{border-radius:18px;padding:18px 8px 14px;margin:0 -4px}
+.stop b{font-size:12.5px}
+.routenote{font-size:12.5px;padding:0 8px}
+.nav a{padding:10px 14px;font-size:13.5px}
+section{padding-top:32px}
+.answer{padding:18px 14px;border-radius:18px}
+.beat{padding-left:12px}
+.say{font-size:17.5px;line-height:1.5}
+.wsm{padding:14px 12px}
+summary{padding:13px 12px;gap:10px}
+.dbody{padding:0 12px 14px}
+.stats{gap:10px}
+.stat{padding:14px;border-radius:16px}
+}
+@media(min-width:1024px){
+.top .wrap,.main,.nav .in,footer{max-width:1160px}
+.top .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:40px;align-items:end}
+.routebox{grid-column:1/-1}
+h1{font-size:60px}
+.lede{margin-bottom:6px}
+section{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:0 36px;align-items:start;padding-top:56px}
+section .qhead{grid-column:1/-1}
+.colB{position:sticky;top:76px}
+.colB h3{margin-top:12px}
+.colB .stats{grid-template-columns:1fr 1fr}
+.big{font-size:32px}
+#checks{display:block}
+.checks{grid-template-columns:1fr 1fr}
+.say{font-size:19px}
+}
+@media(min-width:1024px) and (max-height:820px){.colB{position:static}}
+
+.proof{margin-top:auto;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;align-items:center;text-decoration:none;background:#f6f8fc;border:1px solid var(--rule);border-radius:12px;padding:10px 12px;color:var(--ink)}
+.proof:hover{border-color:var(--navy);background:#fff}
+.proof .pk{grid-column:1/-1;font:700 11px/1.2 "Plus Jakarta Sans",sans-serif;color:var(--blue)}
+.proof .pp{font:700 14px/1.3 "Plus Jakarta Sans",sans-serif}
+.proof .pd{grid-row:2;grid-column:2;font-size:12.5px;color:var(--soft);white-space:nowrap}
+.proof .go{grid-column:1/-1;font:600 12.5px/1 Inter,sans-serif;color:var(--navy);margin-top:6px;display:inline-flex;gap:4px}
+.proof .go::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--yel);margin-top:2px}
+.stat:first-child .proof{background:#fff}
+
+.mock{border:1px solid var(--rule);border-radius:20px;padding:14px;background:linear-gradient(180deg,#f3f6fc,#fff);margin:0 0 6px}
+.mhd{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.mhd span{font:800 15px/1 "Plus Jakarta Sans",sans-serif;color:var(--navy)}
+.mhd em{font:600 11px/1 Inter,sans-serif;font-style:normal;color:var(--soft);background:#fff;border:1px solid var(--rule);padding:4px 8px;border-radius:999px}
+.cap{font-size:13px;color:var(--soft);margin:10px 2px 0}
+.sq{flex:none;width:38px;height:38px;border-radius:10px;display:block}
+.sq.a{background:linear-gradient(135deg,#ffe98a,#ffd000)}.sq.b{background:linear-gradient(135deg,#c9d8f5,#6f8fd6)}.sq.c{background:linear-gradient(135deg,#ffd2c2,#f08a63)}
+.bot{flex:none;width:28px;height:28px;border-radius:50%;background:var(--navy);color:var(--yel);font:800 11px/28px "Plus Jakarta Sans",sans-serif;text-align:center}
+.phone{max-width:300px;margin:0 auto;background:#fff;border-radius:28px;border:8px solid #0b1633;padding:12px;box-shadow:0 18px 30px -20px rgba(0,45,114,.6)}
+.pbar{text-align:center;margin-bottom:8px}.pbar b{display:block;font:800 15px/1.2 "Plus Jakarta Sans",sans-serif}.pbar span{font-size:12px;color:var(--soft)}
+.li{display:flex;gap:10px;align-items:center;padding:8px 4px;border-top:1px solid var(--rule)}
+.li div{flex:1}.li b{display:block;font-size:13.5px}.li span{font-size:12px;color:var(--soft)}
+.li em{font-style:normal;font-weight:700;color:var(--navy);width:24px;text-align:center}
+.li.sp{background:#fffbe0;border-radius:10px;border-top-color:transparent}.li.sp u{text-decoration:none;font-weight:700;color:var(--warn)}
+.agent{display:flex;gap:8px;align-items:center;font-size:12.5px;background:var(--tint);border-radius:12px;padding:8px;margin-top:8px}
+.shop{background:#fff;border-radius:14px;border:1px solid var(--rule);overflow:hidden}
+.banner{background:var(--navy);color:#fff;padding:14px}.banner b{display:block;font:800 16px/1.25 "Plus Jakarta Sans",sans-serif;color:var(--yel)}.banner span{display:block;font-size:13px;color:#dfe7f8;margin:4px 0 10px}
+.banner button{font:700 13px/1 "Plus Jakarta Sans",sans-serif;background:var(--yel);color:var(--navy);border:0;border-radius:999px;padding:10px 14px;min-height:38px}
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:10px}
+.tile{display:flex;flex-direction:column;gap:6px}.tile .sq{width:100%;height:54px}.tile b{font-size:12px;line-height:1.3}.tile span{font-size:11px;color:var(--warn);font-weight:600}
+.brief{display:flex;gap:10px;align-items:center;background:#fff;border:1px solid var(--rule);border-radius:14px;padding:10px 12px}
+.brief b{display:block;font:800 14px/1.2 "Plus Jakarta Sans",sans-serif}.brief span{font-size:13px;color:var(--soft)}
+.arrow{text-align:center;color:var(--navy);font-weight:800;margin:4px 0}
+.vars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.var{background:#fff;border:1px solid var(--rule);border-radius:12px;padding:8px;display:flex;flex-direction:column;gap:5px}.var .sq{width:100%;height:46px}
+.var b{font-size:12px}.var span{font:500 12px/1.35 Newsreader,Georgia,serif}
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}
+.kpis div{background:var(--navy);border-radius:12px;padding:10px 8px;text-align:center}.kpis b{display:block;color:var(--yel);font:800 18px/1.1 "Plus Jakarta Sans",sans-serif}.kpis span{font-size:11px;color:#dfe7f8}
+.book{background:#fff;border:1px solid var(--rule);border-radius:14px;padding:12px}
+.brow{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}.brow b{font:800 14px/1.2 "Plus Jakarta Sans",sans-serif}.brow span{font:700 11px/1 Inter;background:var(--yel);color:var(--navy);padding:5px 8px;border-radius:999px}
+.flags{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}.flags span{font:700 11.5px/1 Inter;background:var(--tint);color:var(--navy);padding:6px 8px;border-radius:8px}
+.bars div{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 8px;margin-bottom:8px}
+.bars span{font-size:12.5px}.bars em{font:700 11px/1 Inter;font-style:normal;color:var(--warn);align-self:center}
+.bars i{grid-column:1/-1;display:block;height:10px;border-radius:999px;background:var(--navy)}.bars i.cap2{background:var(--yel)}
+.agentok{font:600 12.5px/1.3 Inter;color:#14663a;background:#e5f6ec;border-radius:10px;padding:8px 10px}
+.hint .exp{font-weight:600;margin:10px 0 4px}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+<p class="kick"><i></i>Prepared for Tareq · Tech for Retail, Paris</p>
+<h1>Wholesale Media <span>panel answers</span></h1>
+<p class="lede">One storyline across your four questions. Each card has the short answer to say, a longer version, and what's happening in the market. Tap any card with an arrow to open it.</p>
+<div class="routebox"><nav class="route" aria-label="Storyline">
+<a class="stop" href="#q1"><div class="dot">Q1</div><b>Customer shift</b><span>Where it's heading</span></a>
+<a class="stop" href="#q2"><div class="dot">Q2</div><b>Growth</b><span>Where the money is</span></a>
+<a class="stop" href="#q4"><div class="dot">Q4</div><b>AI</b><span>How we deliver</span></a>
+<a class="stop" href="#q6"><div class="dot">Q6</div><b>Priorities</b><span>What to do in 2027</span></a>
+</nav><p class="routenote">One storyline, four stops. <b>METRO Wholesale Media</b> closes every answer.</p></div>
+</div></header>
+
+<div class="nav"><div class="in">
+<a href="#q1">Q1 Heading</a><a href="#q2">Q2 Opportunities</a><a href="#q4">Q4 Delivery</a><a href="#q6">Q6 Priorities</a>
+</div></div>
+
+<main class="main">
+
+<!-- Q1 -->
+<section id="q1">
+<div class="qhead"><div class="qbig">Q1</div><div><p class="qn">Question 1</p>
+<h2>Where is retail media heading?</h2></div></div>
+<div class="colA">
+<details class="hint"><summary><span class="em"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/></svg></span><span class="tx">Question context<span class="s">Optional background for the speaker</span></span></summary>
+<div class="dbody"><p>This opening question sets the direction for the panel. Much of the audience works in consumer retail media and is likely to be interested in how the B2B perspective differs.</p><p class="exp">The audience will likely expect:</p><ul><li>A clear view of where the market is moving</li><li>A concrete example that illustrates the B2B difference</li><li>Acknowledgement that B2B advertising is well established, while retail media for professionals is an emerging field</li></ul></div></details>
+
+<div class="answer">
+<span class="tag"><i></i>Short answer · about 45 seconds</span>
+<div class="beat"><span class="lbl">Headline</span><span class="say">"Retail media follows the customer. And <mark>the customer that matters next is the professional</mark>."</span></div>
+<div class="beat"><span class="lbl">Who buys</span><span class="say">"Our customers are <mark>HoReCa and traders</mark>. One hotel switching its breakfast coffee pours it for <mark>every guest, every morning</mark>."</span></div>
+<div class="beat"><span class="lbl">How they buy</span><span class="say">"They don't only come to the store anymore. They order in the app, online and by delivery. <mark>One customer, many touchpoints.</mark>"</span></div>
+<div class="beat"><span class="lbl">What they want</span><span class="say">"Professionals don't want ads. They want <mark>ideas</mark>: what to put on the menu, what sells, what saves time."</span></div>
+<div class="beat"><span class="lbl">Who decides</span><span class="say">"Soon the corner shop's weekly restock may be prepared by <mark>an agent</mark>. Agents read product data, price and availability, not banners."</span></div>
+<div class="beat wsm"><span class="lbl">METRO Wholesale Media</span><span class="say">"That's why we built METRO Wholesale Media: to <mark>follow the professional across every touchpoint</mark>, with messages that help their business."</span></div>
+<div class="kw"><span>follow the customer</span><span>HoReCa and traders</span><span>B2B2C</span><span>touchpoints</span><span>ideas, not ads</span><span>reorder agents</span></div>
+</div>
+
+<details><summary><span class="em"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg></span><span class="tx">Longer version<span class="s">About 2 minutes</span></span></summary><div class="dbody long">
+<div class="beat"><span class="lbl">Headline</span><span class="say">Retail media always follows the customer. For years that meant the consumer. B2B has always advertised, through trade fairs, sales reps and trade promotions, but retail media for professionals, at the moment of purchase and based on real buying data, is still early. That's the next chapter.</span></div>
+<div class="beat"><span class="lbl">Who buys</span><span class="say">At METRO, our customers are restaurants, hotels, caterers and independent shops, and most of them are known, registered businesses. A hotel kitchen serves breakfast to hundreds of guests a day, and an independent grocer serves a whole neighbourhood. Reach one of our customers and you reach everyone they serve.</span></div>
+<div class="beat"><span class="lbl">How they buy</span><span class="say">A hotel buyer still walks the aisles, but also orders in the app, online and through delivery. Across the industry, wholesalers are combining stores, digital and delivery. For a brand, that means one customer across many touchpoints, and media has to follow them.</span></div>
+<div class="beat"><span class="lbl">What they want</span><span class="say">Professional buyers want help running their business: new dishes, what's selling locally, products that save staff hours. Brands that bring useful content will win, and because a business that switches can reorder for months, they'll judge media on customers won and kept.</span></div>
+<div class="beat"><span class="lbl">Who decides</span><span class="say">AI is starting to change who places the order. We believe routine reorders are among the first tasks people will hand to agents. So brands will need to reach two buyers: the professional, and the agent working for them.</span></div>
+<div class="beat"><span class="lbl">METRO Wholesale Media</span><span class="say">That's the role of METRO Wholesale Media: following the professional customer across store, app, online and delivery, with messages relevant to their kind of business. Our ambition is to be the most trusted way to reach professionals at the moment they make a business decision.</span></div>
+</div></details>
+
+<details><summary><span class="em"><svg viewBox="0 0 24 24"><path d="M3 9l2-5h14l2 5M4 9h16v11H4z"/><path d="M9 20v-6h6v6"/></svg></span><span class="tx">METRO angle<span class="s">What we bring to this question</span></span></summary><div class="dbody">
+<div class="row"><b>Known customers</b><p>Most buyers are registered businesses with a METRO customer card. The online marketplace doesn't require one.</p></div>
+<div class="row"><b>Business types</b><p>Restaurants, hotels, caterers, kiosks and independent traders.</p></div>
+<div class="row"><b>Footprint</b><p>Stores, delivery, app and online, depending on the country. <span class="flag">Confirm which channels WSM sells today</span></p></div>
+</div></details>
+
+</div>
+<div class="colB">
+<div class="mock"><div class="mhd"><span>What it could look like</span><em>Illustration</em></div>
+<div class="phone"><div class="pbar"><b>Weekly restock</b><span>Mini-market · Bucharest</span></div>
+<div class="li"><i class="sq a"></i><div><b>Still water 6 × 1.5 l</b><span>Usual · 20 packs</span></div><em>✓</em></div>
+<div class="li"><i class="sq b"></i><div><b>Coffee beans 1 kg</b><span>Usual · 8 units</span></div><em>✓</em></div>
+<div class="li sp"><i class="sq c"></i><div><b>Iced tea 0.5 l, new flavour</b><span><u>Sponsored</u> · selling fast in shops near you</span></div><em>+</em></div>
+<div class="agent"><span class="bot">AI</span>Your agent prepared this restock. Approve by 18:00 for delivery tomorrow.</div></div>
+<p class="cap">The customer shift for a trader: app ordering, a relevant sponsored idea, and an agent preparing the restock.</p></div>
+<h3>What's happening around the world</h3>
+<div class="stats">
+<div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 10l9-6 9 6v10H3z"/><path d="M9 20v-6h6v6"/></svg></div><div class="big">~80%</div><div class="meter"><i style="width:80%"></i></div><p>of retail purchases still happen in stores, so media can't live only on websites.</p><a class="proof" href="https://advertising.amazon.com/library/news/retail-media-network-growth" target="_blank" rel="noopener"><span class="pk">Research</span><span class="pp">IDC white paper</span><span class="pd">Jun 2026</span><span class="go">Open source ↗</span></a></div>
+<div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><rect x="5" y="7" width="14" height="11" rx="3"/><path d="M12 3v4M9 12h.01M15 12h.01M9 15h6"/></svg></div><div class="big">20%<small>+</small></div><div class="meter"><i style="width:20%"></i></div><p>of B2B sellers expected to face AI buyer agents this year.</p><a class="proof" href="https://www.oreilly.com/radar/?p=19422" target="_blank" rel="noopener"><span class="pk">Analyst forecast</span><span class="pp">Forrester, via O'Reilly</span><span class="pd">2026</span><span class="go">Open source ↗</span></a></div>
+<div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 18V8M10 18V4M16 18v-7M22 18H2"/></svg></div><div class="big">30% <small>+ 45%</small></div><div class="meter"><i style="width:75%"></i></div><p>of B2B organisations run AI agents, and 45% more plan to within six months.</p><a class="proof" href="https://www.salesforce.com/eu/blog/best-b2b-commerce-trends/" target="_blank" rel="noopener"><span class="pk">Survey of 3,450 professionals</span><span class="pp">Salesforce State of Commerce</span><span class="pd">2026</span><span class="go">Open source ↗</span></a></div>
+<div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></div><div class="big">B2C → B2B</div><p>Analysts tell retailers a winning network needs a shift from B2C merchandising to a B2B advertising model.</p><a class="proof" href="https://advertising.amazon.com/library/news/retail-media-network-growth" target="_blank" rel="noopener"><span class="pk">Research</span><span class="pp">IDC white paper</span><span class="pd">Jun 2026</span><span class="go">Open source ↗</span></a></div>
+</div>
+<p class="take"><b>So what?</b> the industry is learning to think B2B. Wholesale has always been B2B.</p>
+</div>
+</section>
+
+<!-- Q2 -->
+<section id="q2">
+<div class="qhead"><div class="qbig">Q2</div><div><p class="qn">Question 2</p>
+<h2>Where are the concrete business opportunities?</h2></div></div>
+<div class="colA">
+<details class="hint"><summary><span class="em"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/></svg></span><span class="tx">Question context<span class="s">Optional background for the speaker</span></span></summary>
+<div class="dbody"><p>This question invites specific use cases and commercial models. The audience is likely to look for practical examples rather than general statements.</p><p class="exp">The audience will likely expect:</p><ul><li>Concrete scenarios and use cases</li><li>A business model that goes beyond selling media space</li><li>An insight-led perspective rather than a product presentation</li></ul></div></details>
+
+<div class="answer">
+<span class="tag"><i></i>Short answer · about 45 seconds</span>
+<div class="beat"><span class="lbl">Headline</span><span class="say">"The biggest opportunity isn't selling more ad space. It's <mark>helping a business add a category</mark>, and helping a brand <mark>win that business</mark>."</span></div>
+<div class="beat"><span class="lbl">Moments</span><span class="say">"A kiosk adding hot snacks. A hotel opening a rooftop bar. A bakery starting a lunch counter. A caterer preparing for wedding season. That's when a business is open to something new, and that's when <mark>a brand should show up</mark>."</span></div>
+<div class="beat"><span class="lbl">Baskets</span><span class="say">"Professionals buy for <mark>an occasion</mark>, not a product. A new cocktail menu needs spirits, syrups, glassware and ice: food and non-food together. Brands can win that occasion together instead of fighting over one shelf."</span></div>
+<div class="beat"><span class="lbl">Models</span><span class="say">"Brands can pay for <mark>accounts won</mark>, not impressions, or fund a benefit the customer actually values, like a discount, training or a menu guide."</span></div>
+<div class="beat wsm"><span class="lbl">METRO Wholesale Media</span><span class="say">"With METRO Wholesale Media, this builds on what METRO already has: <mark>supplier partnerships and a promotion calendar</mark>. It turns media into <mark>a growth business</mark> for brands and for our customers."</span></div>
+<div class="kw"><span>category entry</span><span>occasions</span><span>baskets</span><span>accounts won</span><span>brand-funded benefits</span><span>growth business</span></div>
+</div>
+
+<details><summary><span class="em"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg></span><span class="tx">Longer version<span class="s">About 90 seconds</span></span></summary><div class="dbody long">
+<div class="beat"><span class="lbl">Headline</span><span class="say">When people talk about retail media opportunities, they usually mean more ad space. In wholesale, the bigger opportunity is growth: helping a business add a category, and helping a brand win that business.</span></div>
+<div class="beat"><span class="lbl">Moments</span><span class="say">Professionals change what they buy at specific moments: a kiosk adds hot snacks, a hotel opens a rooftop bar, a bakery starts a lunch counter, a caterer prepares for wedding season. Those are the moments a brand can earn a place.</span></div>
+<div class="beat"><span class="lbl">Occasions</span><span class="say">A new cocktail menu needs spirits, syrups, glassware and ice, and METRO sells all of it under one roof. Brands that support the whole occasion together create more value for the customer and for each other.</span></div>
+<div class="beat"><span class="lbl">Models</span><span class="say">That opens different business models: paying for accounts won rather than impressions, funding benefits the customer values, and turning aggregated category trends into an insight product.</span></div>
+<div class="beat"><span class="lbl">METRO Wholesale Media</span><span class="say">At METRO, Wholesale Media builds on relationships and mechanics that already exist, our supplier partnerships and promotion calendar, and connects them into something measurable. The real question isn't how much media we can sell. It's how much growth we can create.</span></div>
+</div></details>
+
+<details><summary><span class="em"><svg viewBox="0 0 24 24"><path d="M3 9l2-5h14l2 5M4 9h16v11H4z"/><path d="M9 20v-6h6v6"/></svg></span><span class="tx">METRO angle<span class="s">What we build on</span></span></summary><div class="dbody">
+<div class="row"><b>Supplier ties</b><p>Commercial relationships already exist, so media builds on real deals.</p></div>
+<div class="row"><b>Promotion calendar</b><p>Leaflets, offers and seasonal campaigns that media can extend.</p></div>
+<div class="row"><b>Assortment breadth</b><p>Food and non-food under one roof, so one business buys across categories.</p></div>
+<div class="row"><b>Own vs supplier brands</b><p>Both sit side by side and need a fair, clear rule. <span class="flag">Confirm</span></p></div>
+<div class="row"><b>Where to start</b><p>A few categories, a few pilot markets, three formats done well, with guardrails on frequency.</p></div>
+</div></details>
+
+</div>
+<div class="colB">
+<div class="mock"><div class="mhd"><span>What it could look like</span><em>Illustration</em></div>
+<div class="shop"><div class="banner"><b>Opening a rooftop bar?</b><span>Starter kit: spirits, syrups and glassware · launch discount funded by the brands</span><button>See the kit</button></div>
+<div class="tiles"><div class="tile"><i class="sq a"></i><b>Gin 0.7 l</b><span>Sponsored</span></div><div class="tile"><i class="sq b"></i><b>Tonic syrup 1 l</b><span>New for you</span></div><div class="tile"><i class="sq c"></i><b>Highball glasses ×24</b><span>Non-food bundle</span></div></div></div>
+<p class="cap">Category entry as a real offer: an occasion, a basket of brands, and a benefit the customer values.</p></div>
+<h3>What's happening around the world</h3>
+<div class="stats">
+<div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l7-5 7 5v12"/><path d="M9 21v-5h6v5"/></svg></div><div class="big">30,000<small>+</small></div><p>retail locations and about 11,000 brands in the media network of US wholesaler UNFI. It says these services grow faster than core wholesale, with higher margins.</p><a class="proof" href="https://www.digitalcommerce360.com/2025/12/15/unfi-pivots-ecommerce-ai-retail-media-network/" target="_blank" rel="noopener"><span class="pk">News</span><span class="pp">Digital Commerce 360</span><span class="pd">Dec 2025</span><span class="go">Open source ↗</span></a></div>
+<div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h16v12H4z"/><path d="M8 7V5h8v2M4 12h16"/></svg></div><div class="big">$29.1<small>bn</small></div><p>Sysco's agreed deal for Restaurant Depot: delivery, cash and carry and digital combined. That's the hybrid model METRO already runs.</p><a class="proof" href="https://distributionstrategy.com/?p=9900" target="_blank" rel="noopener"><span class="pk">News</span><span class="pp">Distribution Strategy</span><span class="pd">Mar 2026</span><span class="go">Open source ↗</span></a></div>
+<div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 20c0-2.5 1.5-4.5 4-4.5"/></svg></div><div class="big">60<small>+</small></div><p>B2B audiences on Amazon Business, by industry, company size and buying behaviour, including in Germany, France, Italy, Spain and the UK.</p><a class="proof" href="https://advertising.amazon.com/channels/amazon-business" target="_blank" rel="noopener"><span class="pk">Company source</span><span class="pp">Amazon Ads</span><span class="pd">2026</span><span class="go">Open source ↗</span></a></div>
+<div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a4 4 0 0 0 8 0V3M10 3v18M18 3c-2 2-2 6 0 8v10"/></svg></div><div class="big">Sep 2026</div><p>Bidfood Netherlands scales one of the first commerce media networks in European foodservice, with Adhese.</p><a class="proof" href="https://www.martech360.com/news/stack-platforms/bidfood-media-services-selects-adhese-to-support-the-next-phase-of-its-commerce-media-growth" target="_blank" rel="noopener"><span class="pk">News</span><span class="pp">MarTech360</span><span class="pd">Sep 2026</span><span class="go">Open source ↗</span></a></div>
+</div>
+<p class="take"><b>So what?</b> wholesalers everywhere are turning supplier relationships into media. The winners will create growth, not just sell slots.</p>
+</div>
+</section>
+
+<!-- Q4 -->
+<section id="q4">
+<div class="qhead"><div class="qbig">Q4</div><div><p class="qn">Question 4 · your question</p>
+<h2>How can teams deliver on this ambition?</h2></div></div>
+<div class="colA">
+<details class="hint"><summary><span class="em"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/></svg></span><span class="tx">Question context<span class="s">Optional background for the speaker</span></span></summary>
+<div class="dbody"><p>This question addresses execution. As tool adoption is covered by Vincent, the focus here is on how AI changes the retail media model itself.</p><p class="exp">The audience will likely expect:</p><ul><li>Practical examples of what is in place today and what is planned</li><li>A clear structure built on three ideas</li><li>The role of people in oversight and decision-making</li></ul></div></details>
+
+<div class="answer">
+<span class="tag"><i></i>Short answer · about 50 seconds</span>
+<div class="beat"><span class="lbl">Headline</span><span class="say">"AI didn't make us faster at the same thing. It changes <mark>three things</mark> about how retail media works."</span></div>
+<div class="beat"><span class="lbl">1 · Create more</span><span class="say">"<mark>One brief</mark> becomes <mark>a version for every business type</mark>, country and language, so smaller suppliers can take part too."</span></div>
+<div class="beat"><span class="lbl">2 · Predict and personalise</span><span class="say">"Purchase data tells us <mark>what a business is likely to need next</mark>. AI turns that into the right message at the right moment: in search, in the reorder list, and soon <mark>inside AI assistants</mark>."</span></div>
+<div class="beat"><span class="lbl">3 · Prove and optimise</span><span class="say">"Every campaign gets <mark>its own control group</mark>. AI shifts budget to what's working while it runs, and tells the brand <mark>what it caused</mark>, not just what happened."</span></div>
+<div class="beat wsm"><span class="lbl">METRO Wholesale Media</span><span class="say">"At METRO, <mark>GenAI Studio</mark> already produces governed creative across our markets. For Wholesale Media, that's the engine. AI makes more, predicts better and proves more. <mark>People decide what goes out.</mark>"</span></div>
+<div class="kw"><span>create more</span><span>predictive audiences</span><span>moment of need</span><span>always-on incrementality</span><span>in-flight optimisation</span><span>people decide</span></div>
+</div>
+
+<details><summary><span class="em"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg></span><span class="tx">Longer version: now, next, future<span class="s">Pick what's live, frame the rest as direction</span></span></summary><div class="dbody">
+<div class="row"><b>Create more · now</b><p>Versions by business type, country and language from one brief.</p></div>
+<div class="row"><b>Create more · next</b><p>Self-service creative so smaller suppliers don't need an agency.</p></div>
+<div class="row"><b>Create more · future</b><p>Menu ideas, videos and how-tos generated per business, with the brand inside.</p></div>
+<div class="row"><b>Predict · now</b><p>Audiences built from what a business buys; relevance models in sponsored search.</p></div>
+<div class="row"><b>Predict · next</b><p>Predict who is about to add a category or switch supplier; clearly labelled sponsored suggestions in the reorder list; ads that assemble themselves per business type.</p></div>
+<div class="row"><b>Predict · future</b><p>Sponsored ideas inside a METRO assistant ("what's new for my winter menu?"), and media for buyer agents that compete on data, offers and availability.</p></div>
+<div class="row"><b>Prove · now</b><p>Results matched to real purchases. <span class="flag">Confirm what's live</span></p></div>
+<div class="row"><b>Prove · next</b><p>An automatic control group for every campaign; budget moving to what works mid-flight; an insight agent that answers "what worked and why?"</p></div>
+<div class="row"><b>Prove · future</b><p>Outcomes forecast before booking, and account lifetime value as the main B2B metric.</p></div>
+</div></details>
+
+<details><summary><span class="em"><svg viewBox="0 0 24 24"><path d="M3 9l2-5h14l2 5M4 9h16v11H4z"/><path d="M9 20v-6h6v6"/></svg></span><span class="tx">METRO angle<span class="s">What we already have</span></span></summary><div class="dbody">
+<div class="row"><b>GenAI Studio</b><p>Governed generative AI production across 21+ METRO markets. <span class="flag">Confirm wording for an external stage</span></p></div>
+<div class="row"><b>Cost</b><p>Production at 17–32% of agency cost, e.g. the Germany Christmas campaign. <span class="flag">Confirm cleared</span></p></div>
+<div class="row"><b>Guardrails</b><p>Brand rules and QA checks built into production, with people signing off.</p></div>
+<div class="row"><b>Numbers to get</b><p>From Syedul: variants produced, brief-to-live time, suppliers served.</p></div>
+</div></details>
+
+</div>
+<div class="colB">
+<div class="mock"><div class="mhd"><span>What it could look like</span><em>Illustration</em></div>
+<div class="brief"><span class="bot">AI</span><div><b>One brief</b><span>"Launch a plant-based burger range, 20 countries"</span></div></div>
+<div class="arrow">↓</div>
+<div class="vars"><div class="var"><i class="sq a"></i><b>Canteen · DE</b><span>"Der Mittagsklassiker, neu gedacht"</span></div><div class="var"><i class="sq b"></i><b>Brasserie · FR</b><span>"Tout le goût, version végétale"</span></div><div class="var"><i class="sq c"></i><b>Catering · ES</b><span>"Todo el sabor, 100 % vegetal"</span></div></div>
+<div class="kpis"><div><b>142</b><span>versions</span></div><div><b>+12%</b><span>vs control group</span></div><div><b>Day 9</b><span>budget shifted</span></div></div>
+<p class="cap">Create more, predict, prove: one brief, versions per business type and language, results against a control group. Numbers are sample values.</p></div>
+<h3>What's happening around the world</h3>
+<div class="stats">
+<div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z"/></svg></div><div class="big">+71%</div><div class="meter"><i style="width:71%"></i></div><p>more products advertised with video by brands using Amazon's AI creative tools.</p><a class="proof" href="https://advertising.amazon.com/generative-ai-ad-solutions" target="_blank" rel="noopener"><span class="pk">Company source</span><span class="pp">Amazon Ads</span><span class="pd">2026</span><span class="go">Open source ↗</span></a></div>
+<div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div><div class="big">+15%</div><div class="meter"><i style="width:15%"></i></div><p>sales growth, at most, for brands using the same AI creative suite.</p><a class="proof" href="https://advertising.amazon.com/generative-ai-ad-solutions" target="_blank" rel="noopener"><span class="pk">Company source</span><span class="pp">Amazon Ads</span><span class="pd">2026</span><span class="go">Open source ↗</span></a></div>
+<div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg></div><div class="big">Hours</div><p>not weeks, to produce creative variants with Amazon's Creative Agent, according to a partner.</p><a class="proof" href="https://advertising.amazon.com/en-gb/library/expert-advice/agentic-ai-creative-performance" target="_blank" rel="noopener"><span class="pk">Partner article</span><span class="pp">Skai, on Amazon Ads</span><span class="pd">May 2026</span><span class="go">Open source ↗</span></a></div>
+<div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 6h16v10H8l-4 4z"/><path d="M8 10h8M8 13h5"/></svg></div><div class="big">Rufus</div><p>Amazon is embedding ads into its AI shopping assistant: a sign of where sponsored content goes next.</p><a class="proof" href="https://www.emarketer.com/content/amazon-unveils-agentic-ai-make-ad-creation-faster-cheaper" target="_blank" rel="noopener"><span class="pk">Analyst</span><span class="pp">eMarketer</span><span class="pd">2025–26</span><span class="go">Open source ↗</span></a></div>
+</div>
+<p class="take"><b>So what?</b> everyone will have AI tools. The difference is what you feed them: METRO's knowledge of professional customers.</p>
+</div>
+</section>
+
+<!-- Q6 -->
+<section id="q6">
+<div class="qhead"><div class="qbig">Q6</div><div><p class="qn">Question 6 · send to Bastian</p>
+<h2>What should retailers and brands prioritise in 2027?</h2></div></div>
+<div class="colA">
+<details class="hint"><summary><span class="em"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/></svg></span><span class="tx">Question context<span class="s">Optional background for the speaker</span></span></summary>
+<div class="dbody"><p>As the closing question, this is an opportunity to leave the audience with clear and actionable priorities.</p><p class="exp">The audience will likely expect:</p><ul><li>Two or three priorities the audience can take away</li><li>Recommendations that are constructive for the brands in the room</li><li>A memorable closing statement</li></ul></div></details>
+
+<div class="answer">
+<span class="tag"><i></i>Short answer · about 45 seconds</span>
+<div class="beat"><span class="lbl">Headline</span><span class="say">"Three priorities: one for <mark>brands</mark>, one for <mark>retailers</mark>, and one we can only do <mark>together</mark>."</span></div>
+<div class="beat"><span class="lbl">1 · Brands</span><span class="say">"<mark>Treat B2B as its own channel.</mark> Ask for new business accounts, not just return on ad spend, and invest in product data, because in B2B the product page does the selling."</span></div>
+<div class="beat"><span class="lbl">2 · Retailers</span><span class="say">"<mark>Earn trust before selling space.</mark> Professionals are at work, so every message has to help their business. Guardrails first, inventory second."</span></div>
+<div class="beat"><span class="lbl">3 · Together</span><span class="say">"<mark>Fewer networks, shared standards.</mark> Brands don't want 40 logins and 40 ways to measure. They want one way to buy and results they trust."</span></div>
+<div class="beat wsm"><span class="lbl">METRO Wholesale Media</span><span class="say">"That's our 2027 commitment at METRO Wholesale Media: clear rules for our customers, simple booking for brands, and results they can believe. Because the winners won't have the most ad slots. They'll be <mark>the ones a chef trusts, and the chef's AI can read</mark>."</span></div>
+<div class="kw"><span>B2B playbook</span><span>accounts won</span><span>product data</span><span>trust first</span><span>shared standards</span><span>one way to buy</span></div>
+</div>
+
+<details><summary><span class="em"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg></span><span class="tx">Longer version<span class="s">Supporting lines per priority</span></span></summary><div class="dbody">
+<div class="row"><b>Brands · new metrics</b><p>Judge campaigns on accounts won and reorder rates. "Ask us for new customers, not just return on ad spend." <span class="flag">Check tone with Bastian</span></p></div>
+<div class="row"><b>Brands · trade spend</b><p>"Bring some of your trade budget out of the dark."</p></div>
+<div class="row"><b>Brands · product data</b><p>"Write for robots. Weak product data will become invisible."</p></div>
+<div class="row"><b>Retailers · customer benefit</b><p>Every format should give the professional something: an idea, a saving, a better product.</p></div>
+<div class="row"><b>Retailers · labelling</b><p>Sponsored content always marked, especially in assistants and reorder lists.</p></div>
+<div class="row"><b>Together · measurement</b><p>Common definitions for incrementality so results compare across networks.</p></div>
+<div class="row"><b>Together · privacy-safe data</b><p>Brands learn from aggregated purchase data without seeing individual customers.</p></div>
+</div></details>
+
+<details><summary><span class="em"><svg viewBox="0 0 24 24"><path d="M3 9l2-5h14l2 5M4 9h16v11H4z"/><path d="M9 20v-6h6v6"/></svg></span><span class="tx">METRO angle<span class="s">What METRO can commit to</span></span></summary><div class="dbody">
+<div class="row"><b>Guardrails</b><p>Limits on frequency and relevance so the shopping experience stays clean.</p></div>
+<div class="row"><b>One booking</b><p>One way to book across METRO markets. <span class="flag">Confirm it's live or planned</span></p></div>
+<div class="row"><b>Agent-ready range</b><p>Clean, complete product data across METRO's assortment.</p></div>
+</div></details>
+
+</div>
+<div class="colB">
+<div class="mock"><div class="mhd"><span>What it could look like</span><em>Illustration</em></div>
+<div class="book"><div class="brow"><b>Campaign: Back-to-office lunch</b><span>One booking</span></div>
+<div class="flags"><span>DE</span><span>FR</span><span>IT</span><span>ES</span><span>PL</span><span>+15</span></div>
+<div class="bars"><div><span>New accounts won</span><i style="width:78%"></i></div><div><span>Reorder rate</span><i style="width:62%"></i></div><div><span>Messages per customer / week</span><i class="cap2" style="width:30%"></i><em>Capped</em></div></div>
+<div class="agentok">✓ Product data agent-ready · 98% complete</div></div>
+<p class="cap">The 2027 priorities on one screen: one booking, B2B metrics, guardrails for customers, and agent-ready data. Numbers are sample values.</p></div>
+<h3>What's happening around the world</h3>
+<div class="stats">
+<div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M9 11l6-4M9 13l6 4"/></svg></div><div class="big">Connect</div><p>The IAB argues commerce media's next growth depends on the ecosystem connecting, which no single network can deliver alone.</p><a class="proof" href="https://www.iab.com/wp-content/uploads/2026/10/The-Commerce-Media-Connection-Gap.pdf" target="_blank" rel="noopener"><span class="pk">Industry body</span><span class="pp">IAB report</span><span class="pd">Oct 2026</span><span class="go">Open source ↗</span></a></div>
+<div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5v14"/><path d="M4 4l16 16"/></svg></div><div class="big">Not +1</div><p>Success won't come from adding another network.</p><a class="proof" href="https://www.emarketer.com/content/commerce-media-moves-networks-ecosystems" target="_blank" rel="noopener"><span class="pk">Analyst</span><span class="pp">eMarketer</span><span class="pd">2025–26</span><span class="go">Open source ↗</span></a></div>
+<div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></div><div class="big">2 standards</div><p>OpenAI-Stripe (Sept 2025) and Google (Jan 2026) launched protocols for agents to read catalogues and check out.</p><a class="proof" href="https://elogic.co/?p=470348" target="_blank" rel="noopener"><span class="pk">Industry guide</span><span class="pp">Elogic</span><span class="pd">2026</span><span class="go">Open source ↗</span></a></div>
+</div>
+<p class="take"><b>So what?</b> the industry is moving from building networks to making them work together. B2B can start with that lesson built in.</p>
+</div>
+</section>
+
+</main>
+<footer>
+<p class="src">Market figures link to their sources on each card. METRO-specific points marked "Confirm" are not yet verified for an external audience.</p>
+</footer>
+</body>
+</html>
